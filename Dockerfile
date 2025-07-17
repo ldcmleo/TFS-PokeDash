@@ -4,7 +4,6 @@ RUN apt-get install -y git cmake build-essential libluajit-5.1-dev libmysqlclien
 
 COPY cmake /app/forgottenserver/cmake/
 COPY src /app/forgottenserver/src/
-COPY vc14 /app/forgottenserver/vc14/
 COPY CMakeLists.txt /app/forgottenserver/
 RUN mkdir -p /app/forgottenserver/build
 WORKDIR /app/forgottenserver
