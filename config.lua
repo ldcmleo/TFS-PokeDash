@@ -63,7 +63,7 @@ checkExpiredMarketOffersEachMinutes = 60
 maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
-mysqlHost = "127.0.0.1"
+mysqlHost = "poke-server-db-1"
 mysqlUser = "root"
 mysqlPass = "abc123"
 mysqlDatabase = "forgotten"
