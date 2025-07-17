@@ -1,0 +1,33 @@
+services:
+  pokeserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7171:7171"
+      - "7172:7172"
+    volumes:
+      - ./data:/app/forgottenserver/data
+      - ./config.lua:/app/forgottenserver/config.lua
+    depends_on:
+      - db
+    networks:
+      - forgottenserver-network
+  db:
+    image: mariadb:10.5
+    environment:
+      - MYSQL_ROOT_PASSWORD=abc123
+      - MYSQL_DATABASE=forgotten
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=abc123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./dbdata:/var/lib/mysql
+      - ./schema.sql:/src/schema.sql
+    networks:
+      - forgottenserver-network
+
+networks:
+  forgottenserver-network:
+    driver: bridge
