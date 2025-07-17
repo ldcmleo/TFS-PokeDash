@@ -7,7 +7,7 @@ COPY src /app/forgottenserver/src/
 COPY CMakeLists.txt /app/forgottenserver/
 RUN mkdir -p /app/forgottenserver/build
 WORKDIR /app/forgottenserver
-RUN cd build && cmake -DUSE_LUAJIT=FALSE .. && make
+RUN cd build && cmake -DUSE_LUAJIT=ON .. && make
 
 FROM ubuntu:18.04
 RUN apt update && \
