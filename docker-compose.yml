@@ -1,7 +1,7 @@
 services:
   pokeserver:
     build:
-      context: ./docker
+      context: .
       dockerfile: Dockerfile
     ports:
       - "7171:7171"
@@ -16,8 +16,8 @@ services:
       - forgottenserver-network
   db:
     build:
-      context: ./docker/db
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: DB.Dockerfile
     env_file:
       - .env
     ports:
